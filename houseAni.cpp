@@ -1,3 +1,11 @@
+/*
+Universidade Estadual do Ceará
+Ciência da Computação
+Computação Gráfica
+Prof. Matheus Magalhães
+Aluna: Adrilene Pessoa da Fonseca - 1381145
+*/
+
 #include <GL/glut.h>
 #include <iostream>
 
@@ -56,7 +64,7 @@ void desenhaCasa(void){
     glEnd();
 }
 
-void Timer(int value){
+void anima(int value){
     
     // Muda a direção quando chega na borda esquerda ou direita
       if(pos_x > LARGURA-larg_casa || pos_x < 0)
@@ -80,7 +88,7 @@ void Timer(int value){
 
     // Redesenha o quadrado com as novas coordenadas 
     glutPostRedisplay();
-    glutTimerFunc(33,Timer, 1);
+    glutTimerFunc(33,anima, 1);
 }
 
 /* Função callback chamada para fazer o desenho */
@@ -118,9 +126,9 @@ int main(int argc, char **argv){
 	glutInitDisplayMode(GLUT_RGB);
 	glutInitWindowSize (LARGURA, ALTURA);
 	glutInitWindowPosition (100, 100);
-	glutCreateWindow("Transformacoes");
+	glutCreateWindow("Casa Animada");
     glutDisplayFunc(Desenha);
-    glutTimerFunc(25,Timer,1);
+    glutTimerFunc(20,anima,1);
     Inicializa();
 	glutMainLoop();
 }
